@@ -1,0 +1,16 @@
+package com.sencha.extjs.examples.form.dynamic;
+
+import com.sencha.extjs.driver.ExtDriver;
+import com.sencha.extjs.driver.FormFixture;
+
+public class Form1Fixture extends FormFixture {
+	
+	public Form1Fixture(ExtDriver driver) {
+		super("simpleForm", driver);
+	}
+
+	public TextFieldFixture firstName() {
+		return new TextFieldFixture(TextFieldFixture.byLabel("First Name:"), getDriver());
+	}
+
+}

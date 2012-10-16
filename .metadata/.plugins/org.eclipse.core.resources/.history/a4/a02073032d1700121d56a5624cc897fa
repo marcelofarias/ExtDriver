@@ -1,0 +1,18 @@
+package com.sencha.extjs.examples.form.dynamic;
+
+public class DynamicFixture {
+	
+	private static DynamicFixture instance;
+
+	public static DynamicFixture getInstance() {
+		if (instance == null) {
+			instance = new DynamicFixture();
+		}
+		return instance;
+	}
+
+	public Form1Fixture form1() {
+		return new Form1Fixture();
+	}
+
+}

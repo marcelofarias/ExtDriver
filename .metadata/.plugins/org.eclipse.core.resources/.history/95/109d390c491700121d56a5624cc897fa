@@ -1,0 +1,38 @@
+package com.sencha.extjs.driver;
+
+import org.openqa.selenium.WebElement;
+
+public class TextFieldFixture extends ExtComponentFixture {
+
+	public TextFieldFixture(String id, ExtComponentFixture scope, ExtDriver driver) {
+		super(id, scope, driver);
+	}
+	
+	public TextFieldFixture(TextFieldLocator locator, ExtComponentFixture scope, ExtDriver driver) {
+		super(locator.get)
+	}
+
+	public static String byLabel(String label) {
+//		return (String) getDriver().executeScript("return Ext.get(arguments[0]).select('.x-panel-header .x-tool img').elements[0]", getId());
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public static abstract class TextFieldLocator {
+		private abstract String getId(ExtComponentFixture scope, ExtDriver driver);
+	}
+	
+	public static class TextFieldLabelLocator implements TextFieldLocator {
+		
+		private String label;
+		
+		public TextFieldLabelLocator(String label) {
+			this.label = label;
+		}
+		
+		private String getId(ExtComponentFixture scope, ExtDriver driver) {
+			return null;
+		}
+	}
+
+}

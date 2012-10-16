@@ -14,4 +14,16 @@ public class Form1Fixture extends FormFixture {
 		return new TextFieldFixture(new TextFieldFixture.TextFieldLabelLocator("First Name:"), this, getDriver());
 	}
 
+	public TextFieldFixture lastName() {
+		return new TextFieldFixture(new TextFieldFixture.TextFieldLabelLocator("Last Name:"), this, getDriver());
+	}
+	
+	public TextFieldFixture company() {
+		return new TextFieldFixture(new TextFieldFixture.TextFieldLabelLocator("Company:"), this, getDriver());
+	}
+	
+	public TextFieldFixture email() {
+		return new TextFieldFixture(new TextFieldFixture.TextFieldLabelLocator("Email:"), this, getDriver());
+	}
+
 }

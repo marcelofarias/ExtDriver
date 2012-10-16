@@ -1,0 +1,5 @@
+package com.sencha.extjs.driver;
+
+public class TextFieldFixture extends AbstractTextFieldFixture<TextFieldFixture> {
+
+}

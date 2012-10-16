@@ -1,0 +1,19 @@
+package com.sencha.extjs.driver;
+
+public abstract class Condition {
+	
+	public static long CONDITION_TIMEOUT = 30000;
+	
+	public void wait(String timeoutErrorMessage) {
+		long millisecondsAtStart = System.currentTimeMillis();
+		while (System.currentTimeMillis() - millisecondsAtStart <= CONDITION_TIMEOUT) {
+			if (isSatisfied()) {
+				return;
+			}
+			Thread.sleep(100);
+		}
+	}
+	
+	public abstract boolean isSatisfied();
+	
+}

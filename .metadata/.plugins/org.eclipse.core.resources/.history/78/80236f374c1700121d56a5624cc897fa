@@ -1,0 +1,47 @@
+package com.sencha.extjs.driver;
+
+import org.openqa.selenium.WebElement;
+
+public class TextFieldFixture extends ExtComponentFixture {
+
+	public TextFieldFixture(String id, ExtComponentFixture parent, ExtDriver driver) {
+		super(id, parent, driver);
+	}
+	
+	public TextFieldFixture(TextFieldLocator locator, ExtComponentFixture parent, ExtDriver driver) {
+		super(locator.getId(parent, driver), parent, driver);
+	}
+
+	public static String byLabel(String label) {
+//		return (String) getDriver().executeScript("return Ext.get(arguments[0]).select('.x-panel-header .x-tool img').elements[0]", getId());
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public static interface TextFieldLocator {
+		public String getId(ExtComponentFixture scope, ExtDriver driver);
+	}
+	
+	public static class TextFieldLabelLocator implements TextFieldLocator {
+		private String label;
+		
+		public TextFieldLabelLocator(String label) {
+			this.label = label;
+		}
+		
+		public String getId(ExtComponentFixture parent, ExtDriver driver) {
+			if (parent != null) {
+				return (String) driver.executeScript(
+						"Ext.get(arguments[0]).select('tbody.x-field:has(label:contains(' + arguments[1] + '))').elements[0].id",
+						parent.getId().replaceAll(" ", "\\ "),
+						label);
+			} else {
+				return (String) driver.executeScript(
+						"Ext.dom.Query.select('tbody.x-field:has(label:contains(' + arguments[1] + '))').elements[0].id",
+						label);
+			}
+			return null;
+		}
+	}
+
+}

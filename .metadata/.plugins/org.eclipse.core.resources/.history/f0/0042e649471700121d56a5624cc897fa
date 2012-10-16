@@ -1,0 +1,35 @@
+package com.sencha.extjs.driver;
+
+public class ExtComponentFixture {
+	
+	private String id;
+	private ExtComponentFixture parent;
+	private ExtDriver driver;
+	
+	public ExtComponentFixture(String id, ExtComponentFixture parent, ExtDriver driver) {
+		this.id = id;
+		this.parent = parent;
+		this.driver = driver;
+	}
+	
+	public ExtComponentFixture requireClassName(String className) {
+		String actualClassName = (String) driver.executeScript("return Ext.getCmp(arguments[0]).$className", id);
+		if (!actualClassName.equals(className)) {
+			throw new ExtDriverException(String.format("Component with id %s is not a valid instance of %s", id, className));
+		}
+		return this;
+	}
+	
+	public String getId() {
+		return id;
+	}
+	
+	public ExtComponentFixture getParent() {
+		return parent;
+	}
+	
+	public ExtDriver getDriver() {
+		return driver;
+	}
+
+}

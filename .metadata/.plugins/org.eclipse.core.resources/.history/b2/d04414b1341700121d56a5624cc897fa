@@ -1,0 +1,7 @@
+package com.sencha.extjs.driver;
+
+public class ExtComponentFixture {
+	
+	private ExtDriver driver;
+
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testrun name="HelloWorld" project="ExtDriver" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.sencha.extdriver.HelloWorld" time="11.574">
+    <testcase name="helloWorld" classname="com.sencha.extdriver.HelloWorld" time="11.574"/>
+  </testsuite>
+</testrun>

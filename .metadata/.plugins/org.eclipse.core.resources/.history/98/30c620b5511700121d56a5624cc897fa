@@ -1,0 +1,10 @@
+package com.sencha.extjs.driver;
+
+public class TextFieldFixture extends AbstractTextFieldFixture<TextFieldFixture> {
+
+	@Override
+	public String getClassName() {
+		return "Ext.form.field.Text";
+	}
+
+}

@@ -1,0 +1,32 @@
+package com.sencha.extjs.driver;
+
+public class FormFixture extends ExtComponentFixture {
+
+	public FormFixture(String id, ExtDriver driver) {
+		super(id, driver);
+		requireClassName("Ext.form.Panel")
+;		String className = (String) driver.executeScript("return Ext.getCmp(argument[0]).$className", id);
+		if (!className.equals(""))
+	}
+	
+	public void requireExpanded() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void collapse() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void requireCollapsed() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void expand() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

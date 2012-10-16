@@ -1,0 +1,5 @@
+package com.sencha.extjs.examples.form.dynamic;
+
+public class Form1Fixture {
+
+}

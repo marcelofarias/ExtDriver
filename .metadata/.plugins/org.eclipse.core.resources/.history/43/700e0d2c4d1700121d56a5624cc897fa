@@ -1,0 +1,49 @@
+package com.sencha.extjs.driver;
+
+import org.openqa.selenium.WebElement;
+
+public class FormFixture<T extends FormFixture> extends ExtComponentFixture {
+
+	public FormFixture(String id, ExtDriver driver) {
+		super(id, driver);
+		requireClassName("Ext.form.Panel");
+	}
+	
+	public T requireExpanded() {
+		if (!isExpanded()) {
+			throw new ExtDriverException("Form should be expanded");
+		}
+		return this;
+	}
+
+	public FormFixture requireCollapsed() {
+		if (isExpanded()) {
+			throw new ExtDriverException("Form should be collapsed");
+		}
+		return this;
+	}
+	
+	public FormFixture expand() {
+		if (!isExpanded()) {
+			getCollapseTool().click();
+		}
+		return this;
+	}
+	
+	public FormFixture collapse() {
+		if (isExpanded()) {
+			getCollapseTool().click();
+		}
+		return this;
+	}
+
+	private boolean isExpanded() {
+		Object collapsed = getDriver().executeScript("return Ext.getCmp(arguments[0]).collapsed", getId());
+		return Boolean.FALSE.equals(collapsed);
+	}
+	
+	private WebElement getCollapseTool() {
+		return (WebElement) getDriver().executeScript("return Ext.get(arguments[0]).select('.x-panel-header .x-tool img').elements[0]", getId());
+	}
+	
+}

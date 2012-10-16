@@ -1,0 +1,15 @@
+package com.sencha.extjs.examples.form.dynamic;
+
+public class DynamicFixture {
+
+	public static DynamicFixture getInstance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Form1Fixture form1() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

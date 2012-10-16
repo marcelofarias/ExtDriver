@@ -1,0 +1,10 @@
+package com.sencha.extdriver;
+
+public class ExtDriverTest {
+	
+	@Test
+	public void foo() {
+		
+	}
+
+}

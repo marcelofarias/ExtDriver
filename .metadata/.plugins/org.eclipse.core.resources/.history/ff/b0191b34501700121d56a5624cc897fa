@@ -1,0 +1,16 @@
+package com.sencha.extjs.driver;
+
+
+public class FormFixture extends AbstractFormFixture {
+
+	public FormFixture(String id, ExtComponentFixture parent, ExtDriver driver) {
+		super(id, parent, driver);
+	}
+
+	public FormFixture(String id, ExtDriver driver) {
+		super(id, driver);
+	}
+
+
+	
+}

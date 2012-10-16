@@ -1,0 +1,12 @@
+package com.sencha.extjs.examples.form.dynamic;
+
+import org.junit.Test;
+
+public class Form1 {
+	
+	@Test
+	public void formCanBeCollapsedAndExpanded() {
+		
+	}
+
+}

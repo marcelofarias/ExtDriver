@@ -1,0 +1,25 @@
+package com.sencha.extjs.examples.form.dynamic;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+public class Form1Test {
+	
+	@AfterClass
+	public static void quitBrowser() {
+		
+	}
+	
+	
+	@Test
+	public void formCanBeCollapsedAndExpanded() {
+		
+		Form1Fixture form1 = DynamicFixture.getInstance().form1();
+		form1.requireExpanded();
+		form1.collapse();
+		form1.requireCollapsed();
+		form1.expand();
+		
+	}
+
+}
