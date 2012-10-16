@@ -1,6 +1,0 @@
-package com.sencha.extjs.driver;
-
-public abstract class Condition {
-	public static long CONDITION_TIMEOUT = 30000;
-	public boolean isSatisfied();
-}

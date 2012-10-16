@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testrun name="Form1Test" project="ExamplesTest" tests="3" started="3" failures="0" errors="0" ignored="0">
-  <testsuite name="com.sencha.extjs.examples.form.dynamic.Form1Test" time="16.805">
-    <testcase name="formCanBeCollapsedAndExpanded" classname="com.sencha.extjs.examples.form.dynamic.Form1Test" time="12.326"/>
-    <testcase name="formCanBeCollapsedAndExpandedALotOfTimes" classname="com.sencha.extjs.examples.form.dynamic.Form1Test" time="4.278"/>
-    <testcase name="weCanTypeOnTextFields" classname="com.sencha.extjs.examples.form.dynamic.Form1Test" time="0.201"/>
-  </testsuite>
-</testrun>

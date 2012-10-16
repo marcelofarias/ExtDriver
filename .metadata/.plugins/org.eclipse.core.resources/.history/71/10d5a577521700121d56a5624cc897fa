@@ -1,5 +1,0 @@
-package com.sencha.extjs.driver;
-
-public interface Condition {
-	public boolean isSatisfied();
-}
