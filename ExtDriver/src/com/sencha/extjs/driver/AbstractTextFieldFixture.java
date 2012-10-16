@@ -12,9 +12,27 @@ public abstract class AbstractTextFieldFixture<T extends AbstractTextFieldFixtur
 		super(locator.getId(parent, driver), parent, driver);
 	}
 	
-	public T type(String string) {
-		getInputElement().sendKeys(string);
+	public T type(String text) {
+		getInputElement().sendKeys(text);
 		return (T) this;
+	}
+	
+	public T requireText(final String text) {
+		new Condition() {
+			@Override
+			public boolean isSatisfied() {
+				return getInputElement().getAttribute("value").equals(text);
+			}
+			@Override
+			public String getErrorMessage() {
+				return String.format("Expected text [%s], but found [%s]", text, getInputElement().getAttribute("value"));
+			}
+		}.waitUntilSatisfied();
+		return (T) this;
+	}
+	
+	public T requireEmpty() {
+		return requireText("");
 	}
 	
 	private WebElement getInputElement() {

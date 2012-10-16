@@ -4,7 +4,7 @@ public abstract class Condition {
 	
 	public static long CONDITION_TIMEOUT = 30000;
 	
-	public void waitUntilSatisfied(String timeoutErrorMessage) {
+	public void waitUntilSatisfied() {
 		long millisecondsAtStart = System.currentTimeMillis();
 		while (System.currentTimeMillis() - millisecondsAtStart <= CONDITION_TIMEOUT) {
 			if (isSatisfied()) {
@@ -16,8 +16,10 @@ public abstract class Condition {
 				throw new ExtDriverException("Unexpected error while waiting for condition", e);
 			}
 		}
-		throw new ExtDriverException(timeoutErrorMessage);
+		throw new ExtDriverAssertionError(getErrorMessage());
 	}
+	
+	public abstract String getErrorMessage();
 	
 	public abstract boolean isSatisfied();
 	

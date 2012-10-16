@@ -17,6 +17,10 @@ public abstract class AbstractFormFixture<T extends AbstractFormFixture<T>> exte
 		public boolean isSatisfied() {
 			return isExpanded();
 		}
+		@Override
+		public String getErrorMessage() {
+			return "Form should be expanded";
+		}
 	};
 	
 	private Condition isCollapsedCondition = new Condition() {
@@ -24,19 +28,38 @@ public abstract class AbstractFormFixture<T extends AbstractFormFixture<T>> exte
 		public boolean isSatisfied() {
 			return !isExpanded();
 		}
+		@Override
+		public String getErrorMessage() {
+			return "Form should be collapsed";
+		}
 	};
 	
-	private Condition isNotCollapsingOrExpanding = new Condition() {
+	private Condition isNotCollapsing = new Condition() {
 		@Override
 		public boolean isSatisfied() {
 			return !isCollapsingOrExpanding();
+		}
+		@Override
+		public String getErrorMessage() {
+			return "Form was not collapsed";
+		}
+	};
+	
+	private Condition isNotExpanding = new Condition() {
+		@Override
+		public boolean isSatisfied() {
+			return !isCollapsingOrExpanding();
+		}
+		@Override
+		public String getErrorMessage() {
+			return "Form was not expanded";
 		}
 	};
 
 	public T expand() {
 		if (!isExpanded()) {
 			getCollapseTool().click();
-			isNotCollapsingOrExpanding.waitUntilSatisfied("Form was not expanded");
+			isNotExpanding.waitUntilSatisfied();
 		}
 		return (T) this;
 	}
@@ -44,18 +67,18 @@ public abstract class AbstractFormFixture<T extends AbstractFormFixture<T>> exte
 	public T collapse() {
 		if (isExpanded()) {
 			getCollapseTool().click();
-			isNotCollapsingOrExpanding.waitUntilSatisfied("Form was not collapsed");
+			isNotCollapsing.waitUntilSatisfied();
 		}
 		return (T) this;
 	}
 	
 	public T requireExpanded() {
-		isExpandedCondition.waitUntilSatisfied("Form should be expanded");
+		isExpandedCondition.waitUntilSatisfied();
 		return (T) this;
 	}
 
 	public T requireCollapsed() {
-		isCollapsedCondition.waitUntilSatisfied("Form should be collapsed");
+		isCollapsedCondition.waitUntilSatisfied();
 		return (T) this;
 	}
 
