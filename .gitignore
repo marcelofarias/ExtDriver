@@ -1,2 +1,4 @@
 ExamplesTest/bin/
 ExtDriver/bin/
+.metadata/
+.DS_Store/
