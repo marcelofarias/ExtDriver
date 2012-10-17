@@ -25,7 +25,7 @@ public class ExtDriver {
 	
 	public void mouseOver(WebElement element) {
 		Actions builder = new Actions(getWebDriver());
-		builder.moveToElement(element).build().perform();
+		builder.moveToElement(element, 2, 2).build().perform();
 	}
 	
 	public void scrollIntoView(WebElement element) {
