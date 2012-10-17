@@ -3,19 +3,20 @@ package com.sencha.extjs.examples.form.dynamic;
 import com.sencha.extjs.driver.ExtDriver;
 
 public class DynamicFormsFixture {
+
+	private static DynamicFormsFixture instance;
 	
 	private ExtDriver driver;
 	
-	private DynamicFormsFixture() {
-		driver = new ExtDriver("http://qa.sencha.com/knightly/qa/ext-4.1-20121014/examples/form/dynamic.html");
+	private DynamicFormsFixture(ExtDriver driver) {
+		this.driver = driver;
+	}
+	
+	public static void createInstance(ExtDriver driver) {
+		instance = new DynamicFormsFixture(driver);
 	}
 
-	private static DynamicFormsFixture instance;
-
 	public static DynamicFormsFixture getInstance() {
-		if (instance == null) {
-			instance = new DynamicFormsFixture();
-		}
 		return instance;
 	}
 
@@ -23,9 +24,14 @@ public class DynamicFormsFixture {
 		return new Form1Fixture(driver);
 	}
 	
-	public void quit() {
+	public Form2Fixture form2() {
+		return new Form2Fixture(driver);
+	}
+	
+	public void dispose() {
 		driver.getWebDriver().close();
 		driver.getWebDriver().quit();
+		DynamicFormsFixture.instance = null;
 	}
 
 }

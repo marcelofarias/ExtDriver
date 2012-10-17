@@ -1,13 +1,15 @@
 package com.sencha.extjs.driver;
 
+import com.sencha.extjs.driver.locator.ComponentLocator;
+
 public class TextFieldFixture extends AbstractTextFieldFixture<TextFieldFixture> {
 	
-	public TextFieldFixture(String id, ExtComponentFixture parent, ExtDriver driver) {
-		super(id, parent, driver);
+	public TextFieldFixture(String id, ExtComponentFixture scope, ExtDriver driver) {
+		super(id, scope, driver);
 	}
 
-	public TextFieldFixture(com.sencha.extjs.driver.AbstractTextFieldFixture.TextFieldLocator locator, ExtComponentFixture parent, ExtDriver driver) {
-		super(locator, parent, driver);
+	public TextFieldFixture(ComponentLocator locator, ExtComponentFixture scope, ExtDriver driver) {
+		super(locator, scope, driver);
 	}
 
 	@Override

@@ -1,8 +1,11 @@
 package com.sencha.extjs.driver;
 
+import com.sencha.extjs.driver.exception.ExtDriverAssertionError;
+import com.sencha.extjs.driver.exception.ExtDriverException;
+
 public abstract class Condition {
 	
-	public static long CONDITION_TIMEOUT = 30000;
+	public static long CONDITION_TIMEOUT = 5000;
 	
 	public void waitUntilSatisfied() {
 		long millisecondsAtStart = System.currentTimeMillis();
@@ -19,8 +22,8 @@ public abstract class Condition {
 		throw new ExtDriverAssertionError(getErrorMessage());
 	}
 	
-	public abstract String getErrorMessage();
-	
 	public abstract boolean isSatisfied();
+	
+	public abstract String getErrorMessage();
 	
 }

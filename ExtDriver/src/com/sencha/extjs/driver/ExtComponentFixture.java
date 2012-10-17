@@ -1,20 +1,27 @@
 package com.sencha.extjs.driver;
 
+import com.sencha.extjs.driver.exception.ExtDriverException;
+import com.sencha.extjs.driver.locator.ComponentLocator;
+
 public abstract class ExtComponentFixture {
 	
 	private String id;
-	private ExtComponentFixture parent;
+	private ExtComponentFixture scope;
 	private ExtDriver driver;
+	
+	public ExtComponentFixture(String id, ExtComponentFixture scope, ExtDriver driver) {
+		this.id = id;
+		this.scope = scope;
+		this.driver = driver;
+		requireClassName(getClassName());
+	}
 	
 	public ExtComponentFixture(String id, ExtDriver driver) {
 		this(id, null, driver);
 	}
 	
-	public ExtComponentFixture(String id, ExtComponentFixture parent, ExtDriver driver) {
-		this.id = id;
-		this.parent = parent;
-		this.driver = driver;
-		requireClassName(getClassName());
+	public ExtComponentFixture(ComponentLocator locator, ExtComponentFixture scope, ExtDriver driver) {
+		this(locator.getId(scope, driver), scope, driver);
 	}
 	
 	private ExtComponentFixture requireClassName(String className) {
@@ -38,8 +45,8 @@ public abstract class ExtComponentFixture {
 		return id;
 	}
 	
-	public ExtComponentFixture getParent() {
-		return parent;
+	public ExtComponentFixture getScope() {
+		return scope;
 	}
 	
 	public ExtDriver getDriver() {
