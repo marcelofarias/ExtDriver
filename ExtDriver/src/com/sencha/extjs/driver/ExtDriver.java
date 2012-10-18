@@ -34,7 +34,7 @@ public class ExtDriver {
 	
 	public void sleep(long milliseconds) {
 		try {
-			Thread.sleep(100);
+			Thread.sleep(milliseconds);
 		} catch (InterruptedException e) {
 			throw new ExtDriverException("Unexpected error while sleeping", e);
 		}

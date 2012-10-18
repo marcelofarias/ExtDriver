@@ -1,10 +1,12 @@
 package com.sencha.extjs.examples.form.dynamic;
 
+import com.sencha.extjs.driver.ButtonFixture;
 import com.sencha.extjs.driver.ExtComponentFixture;
 import com.sencha.extjs.driver.ExtDriver;
 import com.sencha.extjs.driver.FieldSetFixture;
 import com.sencha.extjs.driver.FormFixture;
 import com.sencha.extjs.driver.TextFieldFixture;
+import com.sencha.extjs.driver.locator.ButtonLabelLocator;
 import com.sencha.extjs.driver.locator.ComponentLocator;
 import com.sencha.extjs.driver.locator.FieldLabelLocator;
 import com.sencha.extjs.driver.locator.FieldSetTitleLocator;
@@ -21,6 +23,14 @@ public class Form2Fixture extends FormFixture {
 	
 	public PhoneNumberFixture phoneNumber() {
 		return new PhoneNumberFixture(new FieldSetTitleLocator("Phone Number"), this, getDriver());
+	}
+	
+	public ButtonFixture save() {
+		return new ButtonFixture(new ButtonLabelLocator("Save"), this, getDriver());
+	}
+	
+	public ButtonFixture cancel() {
+		return new ButtonFixture(new ButtonLabelLocator("Cancel"), this, getDriver());
 	}
 	
 	public static class UserInformationFixture extends FieldSetFixture {
