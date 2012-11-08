@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Adapter
+Bundle-SymbolicName: com.sencha.eclipse.plugin.adapter; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.sencha.eclipse.plugin.adapter.Activator
+Bundle-Vendor: Sencha Inc.
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.views;bundle-version="3.6.100"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

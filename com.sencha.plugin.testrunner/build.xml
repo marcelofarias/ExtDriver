@@ -1,0 +1,14 @@
+<project name="03 - Sencha Eclipse plugin" default="update-dependencies" basedir=".">
+	<description>
+    	Sencha Test Runner build file
+	</description>
+	
+	<property name="testrunner.dir" location="../TestRunner/dist/" />
+	<property name="extdriver.dir" location="../ExtDriver/dist/" />
+	<property name="lib.dir" location="lib" />
+
+	<target name="update-dependencies">
+		<copy file="${testrunner.dir}/sencha-test-runner.jar" todir="${lib.dir}" />
+		<copy file="${extdriver.dir}/extdriver.jar" todir="${lib.dir}" />
+	</target>
+</project>

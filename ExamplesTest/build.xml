@@ -1,0 +1,12 @@
+<project name="04 - Examples Test" default="update-dependencies" basedir=".">
+	<description>
+    	Examples Test
+	</description>
+	
+	<property name="extdriver.dir" location="../ExtDriver/dist/" />
+	<property name="lib.dir" location="lib" />
+
+	<target name="update-dependencies">
+		<copy file="${extdriver.dir}/extdriver.jar" todir="${lib.dir}" />
+	</target>
+</project>

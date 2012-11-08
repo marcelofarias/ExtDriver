@@ -1,0 +1,42 @@
+<project name="02 - Sencha Test Runner" default="dist" basedir=".">
+	<description>
+        Sencha Test Runner build file
+    </description>
+	
+	<property name="src-java.dir" location="src-java" />
+	<property name="src-nonjava.dir" location="src-nonjava" />
+	<property name="build.dir" location="build" />
+	<property name="dist.dir" location="dist" />
+	<property name="lib.dir" value="lib" />
+	<property name="extdriver.dir" value="../ExtDriver/dist" />
+
+	<path id="classpath">
+		<fileset dir="${lib.dir}" includes="**/*.jar" />
+	</path>
+	
+	<target name="clean" description="clean up">
+		<delete dir="${build.dir}" />
+		<delete dir="${dist.dir}" />
+	</target>
+
+	<target name="init">
+		<mkdir dir="${build.dir}" />
+	</target>
+	
+	<target name="update-dependencies">
+		<copy file="${extdriver.dir}/extdriver.jar" todir="${lib.dir}" />
+	</target>
+
+	<target name="compile" depends="init, update-dependencies" description="compile the source ">
+		<javac srcdir="${src-java.dir}" destdir="${build.dir}" classpathref="classpath" includeantruntime="false"/>
+		<copy todir="${build.dir}">
+			<fileset dir="${src-nonjava.dir}" includes="**/*" />
+		</copy>
+	</target>
+
+	<target name="dist" depends="compile" description="generate the distribution">
+		<mkdir dir="${dist.dir}" />
+		<jar jarfile="${dist.dir}/sencha-test-runner.jar" basedir="${build.dir}" />
+	</target>
+
+</project>

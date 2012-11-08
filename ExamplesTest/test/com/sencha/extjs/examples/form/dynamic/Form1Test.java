@@ -120,7 +120,7 @@ public class Form1Test {
 			.requireErrorMessage("This field is required");
 		form1.lastName()
 			.requireInvalid()
-			.requireErrorMessage("This field is required");
+			.requireErrorMessage("This field is required 2");
 		form1.email()
 			.requireInvalid()
 			.requireErrorMessage("This field is required");

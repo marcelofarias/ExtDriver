@@ -14,6 +14,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 
 import com.sencha.extjs.driver.ExtDriver;
 import com.sencha.extjs.driver.exception.ExtDriverException;
+import com.sencha.extjs.driver.factory.DriverFactory;
 
 @RunWith(Suite.class)
 @SuiteClasses({
@@ -24,19 +25,21 @@ public class DynamicTestSuite {
 	
 	@BeforeClass
 	public static void initializeMainFixture() {
-		WebDriver webDriver;
-		try {
-		   File file = new File("lib/firebug-1.9.2.xpi");
-		   FirefoxProfile firefoxProfile = new FirefoxProfile();
-		   firefoxProfile.addExtension(file);
-		   firefoxProfile.setPreference("extensions.firebug.currentVersion", "1.9.2"); // Avoid startup screen
-			   
-		   webDriver = new FirefoxDriver(firefoxProfile);
-		} catch (IOException e) {
-			throw new ExtDriverException("Error creating WebDriver", e);
-		}
-		
-		ExtDriver driver = new ExtDriver("http://qa.sencha.com/knightly/qa/ext-4.1-20121014/examples/form/dynamic.html", webDriver);
+//		WebDriver webDriver;
+//		try {
+//		   File file = new File("lib/firebug-1.9.2.xpi");
+//		   FirefoxProfile firefoxProfile = new FirefoxProfile();
+//		   firefoxProfile.addExtension(file);
+//		   firefoxProfile.setPreference("extensions.firebug.currentVersion", "1.9.2"); // Avoid startup screen
+//			   
+//		   webDriver = new FirefoxDriver(firefoxProfile);
+//		} catch (IOException e) {
+//			throw new ExtDriverException("Error creating WebDriver", e);
+//		}
+//		
+//		ExtDriver driver = new ExtDriver("http://qa.sencha.com/knightly/qa/ext-4.1-20121014/examples/form/dynamic.html", webDriver);
+		ExtDriver driver = DriverFactory.newFirefoxInstance();
+		driver.get("http://qa.sencha.com/knightly/qa/ext-4.1-20121014/examples/form/dynamic.html");
 		DynamicFormsFixture.createInstance(driver);
 	}
 	

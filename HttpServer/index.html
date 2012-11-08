@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title>ExtJS unit test runner</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    	
+    	<link rel="stylesheet" type="text/css" href="/git/SDK/extjs/resources/css/ext-all.css" />
+    	<link rel="stylesheet" type="text/css" href="js/jasmine/jasmine.css">
+    
+    	<script type="text/javascript" src="js/jasmine/jasmine.js"></script>
+    	<script type="text/javascript" src="js/jasmine/jasmine-html.js"></script>
+    	<script type="text/javascript" src="js/jasmine/ConsoleReporter.js"></script>
+    	<script type="text/javascript" src="js/sencha_reporter.js"></script>
+
+    	<script type="text/javascript" src="/git/SDK/extjs/ext-all.js"></script>
+
+		<!-- 
+    	<script type="text/javascript" src="/git/SDK/extjs/test/unit/spec/button/Button.js"></script>
+    	-->
+
+	    <script type="text/javascript">
+	    	Ext.require('*');
+	    	Ext.onReady(function() {
+		    	describe("test", function() {
+		    		it("works", function() {
+		    			expect(1).toBe(1);
+		    		});
+		    		it("fails", function() {
+		    			expect(1).toBe(2);
+		    		});
+		    	});
+		    	describe("describe level 1", function() {
+		    		describe("describe level 2", function() {
+		    			it("it level 3", function() {
+		    				expect(1).toBe(1);
+		    			});
+		    		});
+		    		it("it level 2", function() {
+		    			expect(1).toBe(1);
+		    		});
+		    	});
+		        var jasmineEnv = jasmine.getEnv();
+		        // jasmine.getEnv().addReporter(new jasmine.ConsoleReporter(console));
+		        jasmine.getEnv().addReporter(new Sencha.Reporter());
+		        jasmine.getEnv().addReporter(new jasmine.HtmlReporter());
+		        jasmineEnv.execute();
+			});	        
+	    </script>
+    </head>
+    <body>
+    </body>
+</html>

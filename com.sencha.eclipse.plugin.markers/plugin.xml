@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.sencha.eclipse.plugin.markers.handler.AddMarkerHandler"
+            id="com.sencha.eclipse.plugin.markers.AddMarker"
+            name="Add Marker">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+         <command
+               commandId="com.sencha.eclipse.plugin.markers.AddMarker"
+               label="Add Marker"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>

@@ -1,4 +1,5 @@
-ExamplesTest/bin/
-ExtDriver/bin/
+*/bin/
+*/build/
+*/dist/
 .metadata/
 .DS_Store
