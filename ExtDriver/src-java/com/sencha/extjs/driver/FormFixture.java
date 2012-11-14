@@ -9,6 +9,10 @@ public class FormFixture extends AbstractFormFixture<FormFixture> {
 	public FormFixture(String id, ExtDriver driver) {
 		super(id, driver);
 	}
+	
+	public FormFixture() {
+		
+	}
 
 	@Override
 	public String getClassName() {

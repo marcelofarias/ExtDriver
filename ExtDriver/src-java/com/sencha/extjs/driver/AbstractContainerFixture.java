@@ -18,6 +18,10 @@ public abstract class AbstractContainerFixture<T extends AbstractContainerFixtur
 		super(locator, scope, driver);
 	}
 	
+	public AbstractContainerFixture() {
+		
+	}
+	
 	protected abstract String getContainerPresentationName();
 	
 	private Condition isExpandedCondition = new Condition() {

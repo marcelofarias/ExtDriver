@@ -10,10 +10,7 @@ public abstract class ExtComponentFixture {
 	private ExtDriver driver;
 	
 	public ExtComponentFixture(String id, ExtComponentFixture scope, ExtDriver driver) {
-		this.id = id;
-		this.scope = scope;
-		this.driver = driver;
-		requireClassName(getClassName());
+		initialize(id, scope, driver);
 	}
 	
 	public ExtComponentFixture(String id, ExtDriver driver) {
@@ -22,6 +19,17 @@ public abstract class ExtComponentFixture {
 	
 	public ExtComponentFixture(ComponentLocator locator, ExtComponentFixture scope, ExtDriver driver) {
 		this(locator.getId(scope, driver), scope, driver);
+	}
+	
+	public ExtComponentFixture() {
+		
+	}
+	
+	public void initialize(String id, ExtComponentFixture scope, ExtDriver driver) {
+		this.id = id;
+		this.scope = scope;
+		this.driver = driver;
+		requireClassName(getClassName());		
 	}
 	
 	private ExtComponentFixture requireClassName(String className) {

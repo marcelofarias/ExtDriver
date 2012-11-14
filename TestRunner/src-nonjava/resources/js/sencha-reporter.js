@@ -11,13 +11,14 @@ Sencha.Reporter.prototype.log = function() {
 };
 
 Sencha.Reporter.prototype.reportRunnerStarting = function() {
-	console.log("reportRunnerStarting()");
+//	out.println("reportRunnerStarting()");
+//	console.log("reportRunnerStarting()");
 	Sencha.running = true;
 //	console.log(arguments);
 };
 
 Sencha.Reporter.prototype.reportRunnerResults = function() {
-	console.log("reportRunnerResults()");
+//	console.log("reportRunnerResults()");
 	Sencha.running = false;
 //	console.log(arguments);
 //	debugger;

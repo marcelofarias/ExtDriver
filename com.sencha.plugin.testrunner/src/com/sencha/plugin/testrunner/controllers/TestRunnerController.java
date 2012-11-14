@@ -34,7 +34,14 @@ public class TestRunnerController {
 			throw new RuntimeException("Unsupported browser");
 		}
 		
-		Collection<TestResult> results = runner.run(driver, new String[] {"/Users/marcelofarias/git/SDK/extjs/test/unit/spec"});
+		Collection<TestResult> results = runner.run(
+				driver,
+				new String[] {
+						"/Users/marcelofarias/git/SDK/extjs/test/unit/spec/button"
+				},
+				new String[] {
+						"/Users/marcelofarias/Documents/workspace_extdriver/ExamplesTest/js-test/"
+				});
 		driver.dispose();
 		return results;
 	}

@@ -15,5 +15,6 @@
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/ExtDriver"/>
 	<classpathentry kind="lib" path="lib/selenium-server-standalone-2.25.0.jar"/>
+	<classpathentry kind="lib" path="lib/js-14.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

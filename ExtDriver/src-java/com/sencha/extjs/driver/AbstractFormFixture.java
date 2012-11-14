@@ -12,6 +12,10 @@ public abstract class AbstractFormFixture<T extends AbstractFormFixture<T>> exte
 		super(id, scope, driver);
 	}
 	
+	public AbstractFormFixture() {
+		
+	}
+	
 	protected boolean isCollapsingOrExpanding() {
 		Object isCollapsingOrExpanding = getDriver().executeScript("return Ext.getCmp(arguments[0]).isCollapsingOrExpanding", getId());
 		return !(new Long(0).equals(isCollapsingOrExpanding));

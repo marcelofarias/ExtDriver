@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="lib/js-14.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/selenium-server-standalone-2.25.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/extdriver.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/javax.servlet-3.0.0.v201112011016.jar"/>
